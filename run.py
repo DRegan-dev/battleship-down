@@ -21,3 +21,15 @@ def print_board(board):
         for i in range(len(board[0])):
             print(board[j -1][i], end=" ")
         print()
+
+#Function to get user input with optional minimum and maximum constraints
+def get_input(prompt, minimum=None, Maximum=None):
+    while True:
+        try:
+            value = int(input(prompt))
+            if (minimum is not None and value < minimum) or (maximum is not None and value > maximum):
+                print("Input must be between {} and {}".format(minimum, maximum))
+                continue
+            return value
+        except ValueError:
+            print("You must enter a valid number.")
