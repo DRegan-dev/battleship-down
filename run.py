@@ -38,3 +38,6 @@ def get_input(prompt, minimum=None, Maximum=None):
 print("Welcome to Battleship Down!\n")
 print("Please input your guess using numbers only. Press enter to submit your guess.")
 
+# Get the size of the game board from the user
+size = get_input("Enter board size (Minimum size requirement: 5): ", minimum=5)
+board = creat_board(size)
