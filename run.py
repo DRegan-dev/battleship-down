@@ -46,4 +46,8 @@ board = creat_board(size)
 battleship_size = randint(1, size // 2)
 battleship_row = randint(0, size - 1)
 battleship_col = randint(0, size - 1)
-battleship_orientation = (0, 1) 
+battleship_orientation = (0, 1)
+
+# Initialize game variables
+sunk = False #Flag to check if battleship is sunk
+turns = 0 # Keep track of the number of turns
