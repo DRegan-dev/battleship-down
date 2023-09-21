@@ -83,4 +83,7 @@ while not sunk:
         for j in range(battleship_col, battleship_col + battleship_size)):
     print("Congratulations! You sank my battleship")
     sunk = True
-    
+
+# End of the game
+print("Thanks for playing! It took you {} turns.".format(turns))
+
