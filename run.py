@@ -22,7 +22,7 @@ def print_board(board):
             print(board[j -1][i], end=" ")
         print()
 
-#Function to get user input with optional minimum and maximum constraints
+# Function to get user input with optional minimum and maximum constraints
 def get_input(prompt, minimum=None, Maximum=None):
     while True:
         try:
@@ -33,3 +33,8 @@ def get_input(prompt, minimum=None, Maximum=None):
             return value
         except ValueError:
             print("You must enter a valid number.")
+
+# Print a welcome message
+print("Welcome to Battleship Down!\n")
+print("Please input your guess using numbers only. Press enter to submit your guess.")
+
