@@ -41,3 +41,9 @@ print("Please input your guess using numbers only. Press enter to submit your gu
 # Get the size of the game board from the user
 size = get_input("Enter board size (Minimum size requirement: 5): ", minimum=5)
 board = creat_board(size)
+
+# Randomly determine the size, position, and orientation of the battleship
+battleship_size = randint(1, size // 2)
+battleship_row = randint(0, size - 1)
+battleship_col = randint(0, size - 1)
+battleship_orientation = (0, 1) 
