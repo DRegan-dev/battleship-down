@@ -51,3 +51,36 @@ battleship_orientation = (0, 1)
 # Initialize game variables
 sunk = False #Flag to check if battleship is sunk
 turns = 0 # Keep track of the number of turns
+
+# Main game loop
+while not sunk:
+    turns += 1
+    print("\nTurn", turns)
+
+    # Get the user's guess for row and column
+    guess_row = get_input("Guess Row (1-{}): ".format(size), minimum=1, maximum=size)
+    guess_col = get_input("Guess Col (1-{}): ".format(size), minimum=1, maximum=size)
+
+    # Display the game board after each turn
+    print_board(board)
+
+    # Check if guessed coordinates hit the battleship
+    if battleship_orientation == 0:
+        if battleship_col <= guess_col - 1 < battleship_col + battleship_size:
+            print("You hit a part of the battleship!")
+            board[guess_row -1][guess_col - 1] = "X"
+        else:
+            print("You missed the battleship")
+    else:
+        if battleship_row <= guess_row - 1 < battleship_row + battleship_size:
+            print("You hit part of the battleship!")
+            board[guess_row - 1][guess_col - 1] = "X"
+        else:
+            print("You missed the battleship.")
+    
+    # Check if all parts of the battleship are hit
+    if all(board[i][j] == "X" for i in range(battleship_row, battleship_row + battleship_size)
+        for j in range(battleship_col, battleship_col + battleship_size)):
+    print("Congratulations! You sank my battleship")
+    sunk = True
+    
