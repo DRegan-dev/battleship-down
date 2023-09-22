@@ -65,22 +65,29 @@ print("Welcome to Battleship Down!\n")
 print("Please input your guess using numbers only. Press enter to submit your guess.")
 
 # Get the size of the game board from the user
-size = get_input("Enter board size (Minimum size requirement: 5): ", minimum=5)
+while True:
+    size = get_input("Enter board size (Minimum size requirement: 5): ", minimum=5)
+    if size >= 5:
+        break
+    else:
+        print("Board size must be at least 5.")
+
 board = create_board(size)
 
 # Randomly determine the size, position, and orientation of the battleship
 battleship_size = randint(1, size // 2)
-battleship_row = randint(0, size - 1)
-battleship_col = randint(0, size - 1)
-battleship_orientation = randint(0, 1)
+battleship_row, battleship_col, battleship_orientation = place_battleship(board, battleship_size)
 
 # Initialize game variables
 sunk = False #Flag to check if battleship is sunk
 turns = 0 # Keep track of the number of turns
+unhit_turns = 0
+max_unhit_turns = 10
 
 # Main game loop
 while not sunk:
     turns += 1
+    unhit_turns += 1
     print("\nTurn", turns)
 
     # Get the user's guess for row and column
@@ -91,22 +98,19 @@ while not sunk:
     print_board(board)
 
     # Check if guessed coordinates hit the battleship
-    if battleship_orientation == 0:
-        if battleship_col <= guess_col - 1 < battleship_col + battleship_size:
+    if board[guess_row - 1][guess_col - 1] == "X":
             print("You hit a part of the battleship!")
-            board[guess_row -1][guess_col - 1] = "X"
+            board[guess_row - 1][guess_col - 1] = "H"
+            unhit_turns = 0
         else:
             print("You missed the battleship")
-    else:
-        if battleship_row <= guess_row - 1 < battleship_row + battleship_size:
-            print("You hit part of the battleship!")
-            board[guess_row - 1][guess_col - 1] = "X"
-        else:
-            print("You missed the battleship.")
     
+        if unhit_turns >= max_unhit_turns:
+            print("The battleship has changed its position.")
+            board = create_board(size)
+            battleship_row, battleship_col, battleship_orientation = place_battleship(board, battleship_size)
     # Check if all parts of the battleship are hit
-    if all(board[i][j] == "X" for i in range(battleship_row, battleship_row + battleship_size)
-        for j in range(battleship_col, battleship_col + battleship_size)):
+    if all(cell == "H" for row in board for cell in row):
         print("Congratulations! You sank my battleship")
         sunk = True
 
