@@ -19,7 +19,7 @@ def print_board(board):
     for j in range(1, len(board) + 1):
         print(j, end=" ")
         for i in range(len(board[0])):
-            print(board[j -1][i], end=" ")
+            print(board[j - 1][i], end=" ")
         print()
 
 # Function to get user input with optional minimum and maximum constraints
@@ -32,7 +32,33 @@ def get_input(prompt, minimum = None, maximum = None):
                 continue
             return value
         except ValueError:
-            print("You must enter a valid number.")
+            print("Invalid input. Please enter a valid number.")
+
+def place_battleship(board, size):
+    while True:
+        row = randint(0, size-1)
+        col = randint(0, size - 1)
+        orientation = choice(["horizontal", "vertical"])
+
+        if orientation == "horizontal":
+            if col + size <= len(board[0]):
+                for i in range(size):
+                    if board[row][col + i] == "X":
+                        break
+                else:
+                    for i in range(size):
+                        if board[row][col + i] == "X"
+                    return row, col, orientation
+        else:
+            if row + size <= len(board):
+                for i in range(size):
+                    if board[row + i][col] == "X"
+                        break
+                else:
+                    for i in range(size):
+                        board[row + i][col] = "X"
+                    return row, col, orientation
+                
 
 # Print a welcome message
 print("Welcome to Battleship Down!\n")
