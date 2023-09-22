@@ -1,5 +1,5 @@
 # Import the randint function from the random module
-from random import randint
+from random import randint, choice
 
 # Function to create a game board of a given size
 def create_board(b_size):
@@ -23,7 +23,7 @@ def print_board(board):
         print()
 
 # Function to get user input with optional minimum and maximum constraints
-def get_input(prompt, minimum=None, maximum=None):
+def get_input(prompt, minimum = None, maximum = None):
     while True:
         try:
             value = int(input(prompt))
