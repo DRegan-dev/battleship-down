@@ -7,15 +7,15 @@ Battleship Down is a classic console game where you take on the role of a naval 
 ## Game Overview ##
 In Battleship Down, your mission is to locate and sink the enemy battleship, which is hidden on a grid based gane board. Here are the key components of the game:
 
-* ### Game Board: ### A grid of user-defined size where you make your guesses.
+* **Game Board:** A grid of user-defined size where you make your guesses.
 
-* ### Battleship: ### An enemy battleship of randowm size, position, and orientation on the board
+* **Battleship:** An enemy battleship of randowm size, position, and orientation on the board
 
-* ### Turns: ### The game is played in turns. You make guesses to find and sink the battleship.
+* **Turns:** The game is played in turns. You make guesses to find and sink the battleship.
 
-* ### Unhit Turns: ### If you have a certain number of consecutive unhit turns, the battleship changes its position.
+* **Unhit Turns:** If you have a certain number of consecutive unhit turns, the battleship changes its position.
 
-* ### Winning: ### The game ends when you successfully hit and sink all parts of the battleship.
+* **Winning:** The game ends when you successfully hit and sink all parts of the battleship.
 
 ## How to Play ##
 
