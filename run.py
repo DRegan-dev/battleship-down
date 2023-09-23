@@ -26,7 +26,7 @@ def print_board(board):
             elif cell == "M":
                 print("M", end=" ")
             else:
-                print(" ", end=" ")
+                print("0", end=" ")
             
         print()
 
