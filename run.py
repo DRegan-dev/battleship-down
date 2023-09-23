@@ -19,7 +19,15 @@ def print_board(board):
     for j in range(1, len(board) + 1):
         print(j, end=" ")
         for i in range(len(board[0])):
-            print(board[j - 1][i], end=" ")
+            cell = board[j - 1][i]
+            # Check if the cell contains a hit or a miss
+            if cell == "H":
+                print("H", end=" ")
+            elif cell == "M":
+                print("M", end=" ")
+            else:
+                print(" ", end=" ")
+            
         print()
 
 # Function to get user input with optional minimum and maximum constraints
