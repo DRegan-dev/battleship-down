@@ -38,6 +38,18 @@ In Battleship Down, your mission is to locate and sink the enemy battleship, whi
 9. ** End of the Game: ** The game concludes withe a "Thanks for playing!" message .
 
 ## Screenshots ##
+
+### Game Loop
+
+![game-initialize](assets/images/game%20initialized.png)
+![missed-battleship](assets/images/missed%20battleship.png)
+![hit-battleship](assets/images/hit%20battleship.png)
+
+### Error Handling
+![error-handling](assets/images/game%20error%20handling%201.png)
+![error-handling-2](assets/images/game%20error%20handling%202.png)
+![error-handling-3](assets/images/game%20error%20handling%203.png)
+
 ## Testing ## 
 
 Detailed testing was performed on the Battleship Down game to ensure its functionality and stability. The following aspects were tested:
@@ -66,37 +78,23 @@ The game utilizes the following Python libraries:
 
 ## Deployment
 
+I have successfully deployed Battleship Down on Heroku. Here are the steps i followed to deploy the game:
+
+1. **Heroku Account** I signed up for a Heroku account at [Heroku's website](https://www.heroku.com/).
+
+2. **Create New App** I selected to create new app on Heroku dashboard. I selected Python and Node.js as my buildpacks.
+
+3. **Connected Github** I connected my Git hub account and the relevant repository
+
+4. **Build App** Built the app in Heroku's virtual terminal 
+
+
 ## Contributions
 
-## License
+Contributions to the game are welcome! If you have ideas for improvements or would like to report issues, feel free to create a pull request or an issue on the game's GitHub repository.
+
 
 Enjoy playing Battleship Down and have fun sinking enemy battleships!
 
 
 
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
