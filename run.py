@@ -88,6 +88,9 @@ turns = 0 # Keep track of the number of turns
 unhit_turns = 0 # Maximum number of consecutive turns without hitting the battleship
 max_unhit_turns = 10 # Keep track of consecutive unhit turns
 
+# Track the number of hits on the battleship
+hits = 0
+
 # Main game loop
 while not sunk:
     turns += 1
@@ -106,6 +109,7 @@ while not sunk:
         print("You hit a part of the battleship!")
         board[guess_row - 1][guess_col - 1] = "H"
         unhit_turns = 0
+        hits += 1
     else:
         print("You missed the battleship")
     
@@ -116,7 +120,7 @@ while not sunk:
         unhit_turns = 0
 
     # Check if all parts of the battleship are hit
-    if all(cell == "H" for row in board for cell in row):
+    if hits == battleship_size:
         print("Congratulations! You sank my battleship")
         sunk = True
 
